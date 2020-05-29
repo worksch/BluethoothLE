@@ -22,16 +22,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/startScanBtn" />
 
-    <TextView
-        android:id="@+id/PeripheralTextView"
-        android:layout_width="442dp"
-        android:layout_height="674dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stopScanBtn"
-        app:layout_constraintVertical_bias="1.0" />
+    <ListView
+        android:id="@+id/bledevicelistview"
+        android:layout_width="409dp"
+        android:layout_height="681dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="49dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

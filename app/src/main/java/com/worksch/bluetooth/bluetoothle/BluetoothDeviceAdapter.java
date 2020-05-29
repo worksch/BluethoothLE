@@ -11,43 +11,43 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BluetoothLEDeviceAdapter extends ArrayAdapter<BluetoothLEDeviceEntity> {
+public class BluetoothDeviceAdapter extends ArrayAdapter<BluetoothDeviceEntity> {
     private int resource;
 
-    private List<BluetoothLEDeviceEntity> bleDevices = new ArrayList<>();
+    private List<BluetoothDeviceEntity> bleDevices = new ArrayList<>();
 
-    public BluetoothLEDeviceAdapter(Context context, int resource) {
+    public BluetoothDeviceAdapter(Context context, int resource) {
         super(context, resource);
         this.resource = resource;
     }
 
-    public BluetoothLEDeviceAdapter(Context context, int resource, List<BluetoothLEDeviceEntity> objects) {
+    public BluetoothDeviceAdapter(Context context, int resource, List<BluetoothDeviceEntity> objects) {
         super(context, resource, objects);
         this.resource = resource;
         this.bleDevices = objects;
     }
 
-    public void setBleDevices(List<BluetoothLEDeviceEntity> bleDevices) {
+    public void setBleDevices(List<BluetoothDeviceEntity> bleDevices) {
         this.bleDevices = bleDevices;
     }
 
     /**
      * 只更新单条数据且不更新界面
      */
-    public void updateChangedItemBean(int index, BluetoothLEDeviceEntity entity ) {
+    public void updateChangedItemBean(int index, BluetoothDeviceEntity entity ) {
         bleDevices.set(index, entity);
     }
 
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        BluetoothLEDeviceEntity entity = getItem(position);//获取当前项的实例
+        BluetoothDeviceEntity entity = getItem(position);//获取当前项的实例
 
         View view = LayoutInflater.from(getContext()).inflate(resource, parent, false);
 
-        ((TextView) view.findViewById(R.id.name)).setText(entity.getName());
-        ((TextView) view.findViewById(R.id.address)).setText(entity.getAddress());
-        ((TextView) view.findViewById(R.id.rssi)).setText(entity.getRssi());
+        ((TextView) view.findViewById(R.id.name)).setText(entity.getDevice().getName());
+        ((TextView) view.findViewById(R.id.address)).setText(entity.getDevice().getAddress());
+        //((TextView) view.findViewById(R.id.rssi)).setText(entity.getDevice()());
 
         /*BluetoothLEDeviceEntity entity = getItem(position);//获取当前项的实例
         View view;
